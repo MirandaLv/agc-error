@@ -47,50 +47,6 @@ def locsPerAdm(locFile, shapes):
 
     locs = csv.DictReader(locFile, delimiter=delim)
 
-
-    # bounding_box = {}
-
-    # for shp in shapes:
-    #     minx, miny, maxx, maxy = shp.bbox
-    #     bounding_box[shp] = box(minx, miny, maxx, maxy)
-
-
-    # countDict = {}
-    # rowIn = 0
-    # rowNum = 0
-
-    # for row in locs:
-
-    #     rowNum += 1
-
-    #     try:
-    #         lon = float(row['longitude'])
-    #         lat = float(row['latitude'])
-
-    #     except ValueError:
-    #         # print 'WARNING: (row ' + str(rowNum + 2) + ') does not have correct format (or existant) coordinates'
-    #         lon = ''
-    #         lat = ''
-
-    #     if lon != '' and lat != '':
-
-    #         curPoint = Point(lon, lat)
-
-    #         for shp in shapes:
-
-    #             # minx, miny, maxx, maxy = shp.bbox
-    #             # bounding_box = box(minx, miny, maxx, maxy)
-
-    #             if shp not in countDict:
-    #                 countDict[shp] = 0
-
-    #             if bounding_box[shp].contains(curPoint):
-
-    #                 if curPoint.within(shape(shp)):
-    #                     countDict[shp] += 1
-    #                     rowIn += 1
-    
-
     countDict = {}
     rowIn = 0
 
