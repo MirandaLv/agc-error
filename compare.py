@@ -283,7 +283,7 @@ if __name__ == '__main__':
     xvals = ind+width/2.
 
     plt.title('Autogeocoder Error')
-    plt.ylabel('Error (project count)')
+    plt.ylabel('Error (quantity and allocation)')
     plt.xticks(xvals, plotCat )
     plt.xlim([min(xvals) - 0.5, max(xvals) + 0.5])
 
