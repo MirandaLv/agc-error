@@ -1,0 +1,59 @@
+{
+    "error": {
+        "file_0": {
+            "adm0": {
+                "additional_allocation": 0, 
+                "additional_project": 0, 
+                "quantity": 196, 
+                "total_allocation": 0, 
+                "total_project": 0
+            }, 
+            "adm1": {
+                "additional_allocation": 924, 
+                "additional_project": 462, 
+                "quantity": 196, 
+                "total_allocation": 924, 
+                "total_project": 462
+            }, 
+            "adm2": {
+                "additional_allocation": 506, 
+                "additional_project": 253, 
+                "quantity": 196, 
+                "total_allocation": 1430, 
+                "total_project": 715
+            }
+        }
+    }, 
+    "files": {
+        "file_0": "/home/usery/agc/malawi/alt/Malawi_docs_coded v1_pared_latlongonly_alt.csv", 
+        "source": "/home/usery/agc/malawi/actual.csv"
+    }, 
+    "info": {
+        "country": "malawi", 
+        "time": 1426015640
+    }, 
+    "projects": {
+        "file_0": {
+            "country": 1921, 
+            "total": 1967
+        }, 
+        "source": {
+            "country": 2117, 
+            "total": 2523
+        }
+    }, 
+    "runtime": {
+        "sub": {
+            "adm0": {
+                "file_0": 13
+            }, 
+            "adm1": {
+                "file_0": 12
+            }, 
+            "adm2": {
+                "file_0": 49
+            }
+        }, 
+        "total": 75
+    }
+}
