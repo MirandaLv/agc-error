@@ -176,6 +176,8 @@ if __name__ == '__main__':
             # iterate over comparison / autogeocoded data
             for data_file in data_list:
 
+                Tfile = time.time()
+
                 name = "file_" + str(data_list.index(data_file))
                 output['files'][name] = data_file
                 print '\tRunning '+ name +' : '+ data_file[data_file.rfind('/')+1:-4]
@@ -212,15 +214,18 @@ if __name__ == '__main__':
 
                 output['error'][name]['adm'+str(adm_lvl)] = {
                                                                 "quantity":qError,
-                                                                "total_allocation":aError,
-                                                                "additional_allocation":aError-prev_aError,
-                                                                "total_project":aError/2,
-                                                                "additional_project":(aError-prev_aError)/2
-                                                            }            
+                                                                # "total_allocation":aError,
+                                                                # "additional_allocation":aError-prev_aError,
+                                                                "total_allocation":aError/2,
+                                                                "additional_allocation":(aError-prev_aError)/2
+                                                            }
+
+                Tfile = int(time.time() - Tfile)
+                output['runtime']['sub']['adm'+str(adm_lvl)][name] = Tfile
                                                  
 
             Tadm = int(time.time() - Tadm)
-            output['runtime']['sub']['adm'+str(adm_lvl)][name] = Tadm
+            output['runtime']['sub']['adm'+str(adm_lvl)]['total'] = Tadm
             print '\tRuntime - ADM'+str(adm_lvl)+': ' + str(Tadm//60) +'m '+ str(int(Tadm%60)) +'s'
 
             adm_lvl += 1
@@ -244,7 +249,7 @@ if __name__ == '__main__':
 
 
     # build stacked bar chart
-
+    adm_size = adm_lvl #+ 1
     plotColors = ("k","r","g","b","y","m","c")
 
     # number of comparison datasets
@@ -256,29 +261,47 @@ if __name__ == '__main__':
     # the width of the bars: can also be len(x) sequence
     width = 0.35
 
-    plotData = [0] * adm_lvl
-    plotObject = [0] * adm_lvl
-    plotCat = [0] * adm_lvl
+    plotData = [0] * adm_size
+    plotBot = [0] * adm_size
+    plotObject = [0] * adm_size
+    plotCat = [0] * N
+
+    def getBot(ri, rj):
+
+        bval = 0
+        for vi in range(ri):
+            bval += plotData[vi][rj]
+        return bval
 
     # create plot for each comparison dataset
-    for i in range(0, adm_lvl):
+    for i in range(adm_size):
 
         plotData[i] = [0] * N
+        plotBot[i] = [0] * N
 
-        for j in range(0, N):
+        for j in range(N):
             
+            qe = output['error']['file_'+str(j)]['adm'+str(i)]['quantity']
+            # ae = output['error']['file_'+str(j)]['adm'+str(i)]['total_allocation']
+            ae = output['error']['file_'+str(j)]['adm'+str(i)]['additional_allocation']
+
             if i == 0:
                 plotCat[j] = 'A'+str(j)
 
-                plotData[i][j] = output['error']['file_'+str(j)]['adm'+str(i)]['quantity']
+                plotData[i][j] = qe
+                plotBot[i][j] = 0
+
+            elif i == 1:
+                plotData[i][j] = ae
+                plotBot[i][j] = qe        
+
             else:
-                plotData[i][j] = output['error']['file_'+str(j)]['adm'+str(i)]['additional_allocation']
+                plotData[i][j] = ae
+                plotBot[i][j] = getBot(i,j)
 
         # build bar
-        if i == 0:
-            plotObject[i] = plt.bar(ind, plotData[i], width, color=plotColors[i], edgecolor='k',linewidth=1)
-        else:
-            plotObject[i] = plt.bar(ind, plotData[i], width, color=plotColors[i], bottom=plotData[i-1], edgecolor='k',linewidth=1)
+
+        plotObject[i] = plt.bar(ind, plotData[i], width, color=plotColors[i], bottom=plotBot[i], edgecolor='k',linewidth=1)
 
     xvals = ind+width/2.
 
@@ -286,7 +309,8 @@ if __name__ == '__main__':
     plt.ylabel('Error (quantity and allocation)')
     plt.xticks(xvals, plotCat )
     plt.xlim([min(xvals) - 0.5, max(xvals) + 0.5])
-
+    
+    # plt.ylim([0, 5000])
     # ymax=2000
     # plt.yticks(np.arange(0,ymax,ymax/10))
 
