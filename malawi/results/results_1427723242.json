@@ -1,0 +1,156 @@
+{
+    "error": {
+        "file_0": {
+            "adm0": {
+                "additional_allocation": 0, 
+                "quantity": 43, 
+                "total_allocation": 0
+            }, 
+            "adm1": {
+                "additional_allocation": 406, 
+                "quantity": 43, 
+                "total_allocation": 406
+            }, 
+            "adm2": {
+                "additional_allocation": 1035, 
+                "quantity": 43, 
+                "total_allocation": 1238
+            }
+        }, 
+        "file_1": {
+            "adm0": {
+                "additional_allocation": 0, 
+                "quantity": 196, 
+                "total_allocation": 0
+            }, 
+            "adm1": {
+                "additional_allocation": 462, 
+                "quantity": 196, 
+                "total_allocation": 462
+            }, 
+            "adm2": {
+                "additional_allocation": 484, 
+                "quantity": 196, 
+                "total_allocation": 715
+            }
+        }, 
+        "file_2": {
+            "adm0": {
+                "additional_allocation": 0, 
+                "quantity": 1623, 
+                "total_allocation": 0
+            }, 
+            "adm1": {
+                "additional_allocation": 1223, 
+                "quantity": 1623, 
+                "total_allocation": 1223
+            }, 
+            "adm2": {
+                "additional_allocation": 902, 
+                "quantity": 1623, 
+                "total_allocation": 1514
+            }
+        }, 
+        "file_3": {
+            "adm0": {
+                "additional_allocation": 0, 
+                "quantity": 324, 
+                "total_allocation": 0
+            }, 
+            "adm1": {
+                "additional_allocation": 396, 
+                "quantity": 324, 
+                "total_allocation": 396
+            }, 
+            "adm2": {
+                "additional_allocation": 1025, 
+                "quantity": 324, 
+                "total_allocation": 1223
+            }
+        }, 
+        "file_4": {
+            "adm0": {
+                "additional_allocation": 0, 
+                "quantity": 1163, 
+                "total_allocation": 0
+            }, 
+            "adm1": {
+                "additional_allocation": 1514, 
+                "quantity": 1163, 
+                "total_allocation": 1514
+            }, 
+            "adm2": {
+                "additional_allocation": 904, 
+                "quantity": 1163, 
+                "total_allocation": 1661
+            }
+        }
+    }, 
+    "files": {
+        "file_0": "/home/usery/agc/agc-error/malawi/alt/base_2.tsv", 
+        "file_1": "/home/usery/agc/agc-error/malawi/alt/Malawi_docs_coded v1_pared_latlongonly_alt.csv", 
+        "file_2": "/home/usery/agc/agc-error/malawi/alt/MW_FC_results2.csv", 
+        "file_3": "/home/usery/agc/agc-error/malawi/alt/base_1.tsv", 
+        "file_4": "/home/usery/agc/agc-error/malawi/alt/MW_FC_results3.csv", 
+        "source": "/home/usery/agc/agc-error/malawi/actual.csv"
+    }, 
+    "info": {
+        "country": "malawi", 
+        "time": 1427723242
+    }, 
+    "projects": {
+        "file_0": {
+            "country": 2160, 
+            "total": 2177
+        }, 
+        "file_1": {
+            "country": 1921, 
+            "total": 1967
+        }, 
+        "file_2": {
+            "country": 3740, 
+            "total": 3740
+        }, 
+        "file_3": {
+            "country": 2441, 
+            "total": 2458
+        }, 
+        "file_4": {
+            "country": 3280, 
+            "total": 3282
+        }, 
+        "source": {
+            "country": 2117, 
+            "total": 2523
+        }
+    }, 
+    "runtime": {
+        "sub": {
+            "adm0": {
+                "file_0": 7, 
+                "file_1": 6, 
+                "file_2": 11, 
+                "file_3": 7, 
+                "file_4": 10, 
+                "total": 50
+            }, 
+            "adm1": {
+                "file_0": 5, 
+                "file_1": 6, 
+                "file_2": 20, 
+                "file_3": 6, 
+                "file_4": 11, 
+                "total": 55
+            }, 
+            "adm2": {
+                "file_0": 25, 
+                "file_1": 22, 
+                "file_2": 41, 
+                "file_3": 28, 
+                "file_4": 36, 
+                "total": 181
+            }
+        }, 
+        "total": 287
+    }
+}
