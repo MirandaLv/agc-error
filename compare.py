@@ -113,7 +113,7 @@ def calcAError(actualDict, predDict, shapes, qError):
     tError = 0
     for shp in shapes:
         tError += abs(actualDict[shp] - predDict[shp])
-    aError = tError - qError
+    aError = (tError - qError)/2
     return aError
 
 
@@ -216,8 +216,8 @@ if __name__ == '__main__':
                                                                 "quantity":qError,
                                                                 # "total_allocation":aError,
                                                                 # "additional_allocation":aError-prev_aError,
-                                                                "total_allocation":aError/2,
-                                                                "additional_allocation":(aError-prev_aError)/2
+                                                                "total_allocation":aError,
+                                                                "additional_allocation":(aError-prev_aError)
                                                             }
 
                 Tfile = int(time.time() - Tfile)
@@ -264,7 +264,7 @@ if __name__ == '__main__':
     plotData = [0] * adm_size
     plotBot = [0] * adm_size
     plotObject = [0] * adm_size
-    plotCat = [0] * N
+    plotCat = ['AidData2', 'Maurits', 'AidData1', 'FC']
 
     def getBot(ri, rj):
 
@@ -286,7 +286,7 @@ if __name__ == '__main__':
             ae = output['error']['file_'+str(j)]['adm'+str(i)]['additional_allocation']
 
             if i == 0:
-                plotCat[j] = 'A'+str(j)
+                # plotCat[j] = 'A'+str(j)
 
                 plotData[i][j] = qe
                 plotBot[i][j] = 0
