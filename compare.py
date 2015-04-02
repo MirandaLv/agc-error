@@ -264,7 +264,7 @@ if __name__ == '__main__':
     plotData = [0] * adm_size
     plotBot = [0] * adm_size
     plotObject = [0] * adm_size
-    plotCat = ['AidData2', 'Maurits', 'AidData1', 'FC']
+    plotCat = ['AidData2', 'Maurits', 'AidData1', 'CLIFF', 'FC']
 
     def getBot(ri, rj):
 
