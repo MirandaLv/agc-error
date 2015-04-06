@@ -1,0 +1,56 @@
+Autogeocoding Summary
+
+The fundamental process of automating geocoding involves reading raw documents using optical character 
+recognition (OCR) software, extracting place names from the OCR output through text processing and then 
+using a geonames database to assign coordinates to place names. Three implementations of an automated 
+geocoder were analyzed based on the error of their outputs relative to the human geocoded release for 
+the Malawi Aid Management Platform (http://aiddata.org/geocoded-datasets). All automated geocoders and 
+the official release were based on the same set of raw documents consisting of a combination of pdfs, 
+jpgs, word documents and excel spreadsheets.
+
+In the attached image (compare_plot_fix_20150331.png) the results of this comparison are plotted where 
+column 'FC' refers to the output from the Foundation Center API, 'AidData1' is simple autogeocoder 
+developed at AidData, 'Maurits' is the autogeocoder developed by Maurits and 'AidData2' is a slightly 
+modified version of the 'AidData1' autogeocoder. The raw output used to generate this plot can be found 
+in the attached JSON file.  
+
+The autogeocoders were compared by calculating quantity and allocation error for each output relative 
+to the human geocoded (control) dataset. Quantity error is the absolute difference between the number 
+of locations in the control and automated datasets. Allocation error is calculated at each administrative 
+level (ADM1 and ADM2 for this comparison) and represents the number of locations which the autogeocoder 
+incorrectly allocated relative to that administrative level's boundaries. Quantity error is the bottom 
+black section of the attached plot, allocation error at ADM1 is the middle red section and allocation 
+error at ADM2 is the top green section.  
+
+Relative to the 2117 geocoded locations in the control dataset, the autogeocoder outputs (AidData2, 
+Maurits, AidData1, FC) had quantity errors of 43, 196, 324 and 1163. Allocation error at the first 
+administrative level was 406, 462, 396 and 1514 and total allocation error at the second administrative 
+level was 1238, 715, 1223 and 1661 (note: the plot displays additional allocation error not total 
+allocation error). The overall error for each was 1281, 911, 1547 and 2824.
+
+The autogeocoder produced by Maurits had the lowest overall error with 29%, 41% and 68% less error then 
+AidData2, AidData1 and FC, respectively. The AidData2 autogeocoder had the lowest quantity error with only 
+2% while the others had 9% (Maurits), 15% (AidData1) and 55% (FC). Both AidData versions and Maurits had 
+similar allocation error at the first administrative level while Maurits' autogeocoder performed better 
+at the second administrative level. 
+
+While these results provide a useful first look at the effectiveness of current autogeocoding efforts there 
+are a number of factors which cannot currently be assesed using the Malawi documents and release. The most 
+significant limitation with this release and document set is that comparisons can only be done for the full 
+set of documents and locations. The long term solution to this is to include source document references in 
+the release which would allow us to analyze the accuracy of autogeocoders on a per document basis. The short 
+term solution is to have human geocoders manually re-geocode subsets of the Malawi documents in this manner 
+to allow us to conduct a similar accuracy analysis.
+
+Based on the current state of these autogeocoding efforts it is unlikely that such a utility would be capable 
+of replacing a human geocoder in the near future. However, there are still practical applications for the core 
+functions of an autogeocoder that can improve the workflow of human geocoders. One potential use for the 
+existing functionallity of an autogeocoder would be to help determine time and resources allocation for 
+geocoding efforts. Based on the results of this comparison we now know that the autogeocoders can predict 
+the number of projects to be geocoded with reasonable levels of accuracy. Combined with statistics on average 
+time to geocode a document this could help determine how long and how many people would be needed to geocode a 
+new document set. With minor adjustments a tool could be produced which predicts the number of projects per 
+document and optimizes distribution of geocoding tasks across geocoders to balance the load. Finally, a more 
+ambituous application of current autogeocoding tools would be an aid for human geocoders which highlights 
+potential placenames.
+
