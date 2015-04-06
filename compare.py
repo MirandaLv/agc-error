@@ -152,6 +152,7 @@ if __name__ == '__main__':
     # get comparison / autogeocoded data from "alt" folder
     data_folder = cbase + '/alt'
     data_list = [os.path.join(dirpath, f) for dirpath, dirnames, files in os.walk(data_folder) for f in files if f.endswith('.csv') or f.endswith('.tsv')]
+    data_list.sort()
 
     adm_lvl = 0
 
@@ -264,7 +265,7 @@ if __name__ == '__main__':
     plotData = [0] * adm_size
     plotBot = [0] * adm_size
     plotObject = [0] * adm_size
-    plotCat = ['AidData2', 'Maurits', 'AidData1', 'CLIFF', 'FC']
+    plotCat = ['FC', 'Maurits', 'AidData1', 'AidData2', 'CLIFF', 'CLIFF2']
 
     def getBot(ri, rj):
 
